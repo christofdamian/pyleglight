@@ -5,11 +5,10 @@ import logging
 from .leglight import LegLight
 from .discovery import discover
 
-__author__ = 'Obviate.io <python-code@obviate.io>'
-__version__ = '0.0.1'
-__website__ = 'https://gitlab.com/obviate.io/pyleglight'
-__license__ = 'MIT License'
+from .__version__ import __title__, __description__, __url__, __version__
+from .__version__ import __author__, __author_email__, __license__
 
+# You shouldn't import all, but you can...
 __all__ = [
     'discover',
     'LegLight',
