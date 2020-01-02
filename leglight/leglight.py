@@ -22,6 +22,11 @@ class LegLight:
         self.serialNumber = details['serialNumber']
         self.display = details['displayName']
 
+        self.isOn = None
+        self.isBrightness = None
+        self.isTemperature = None
+        self.info()
+
     def __repr__(self):
         return "Elgato Light {} @ {}:{}".format(self.serialNumber, self.address, self.port)
 
@@ -54,3 +59,12 @@ class LegLight:
             res = requests.put('http://{}:{}/elgato/lights'.format(self.address, self.port), data=data)
         else:
             logging.warn("INVALID COLOR TEMP - Must be 3000-7000")
+
+    def info(self):
+        logging.debug("getting info for " + self.display)
+        res = requests.get('http://{}:{}/elgato/lights'.format(self.address, self.port))
+        status = res.json()['lights'][0]
+        self.isOn = status['on']
+        self.isBrightness = status['brightness']
+        self.isTemperature = status['temperature']
+        return({'on':self.isOn,'brightness':self.isBrightness,'temperature':self.isTemperature})

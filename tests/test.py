@@ -10,6 +10,7 @@ logging.basicConfig(level=logging.DEBUG)
 theLights = leglight.discover(2)
 for aLight in theLights:
     print(aLight)
+    print("Light Status: On - {} // Brightness - {} // Temp - {}".format(aLight.isOn,aLight.isBrightness,aLight.isTemperature))
 
 # Lets pick one to turn on and off, basic stuff.
 theLights[0].on()
