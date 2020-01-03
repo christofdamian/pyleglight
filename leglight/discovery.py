@@ -7,8 +7,16 @@ from typing import cast
 from . import LegLight
 import logging
 
-# Use zeroconf(/mDNS/Bonjour/Avahi) to find the lights on the network
 def discover(timeout=5):
+    """ 
+    Return a list of Elgato lights on the network
+    
+    Parameters
+    ----------
+    timeout
+       The number of seconds to wait for zeroconf discovery
+    """
+
     lights = []
     class thelistener:
         def remove_service(self, zeroconf, type, name):
