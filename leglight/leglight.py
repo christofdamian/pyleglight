@@ -102,3 +102,12 @@ class LegLight:
     def postFit(self, val):
         """Take the int that the Elgato Light returns and convert it roughly back to color temp (in K)"""
         return round(1000000*val**-1, -2)
+
+    ### Firmware section is for documentational purposes. Not in anyway near ready for use.
+    # def updateFirmware(self, file):
+        # PUT /elgato/firmware-update/prepare -- Data: {"size":785207}
+        # PUT /elgato/firmware-update/data?offset=0
+        # PUT /elgato/firmware-update/data?offset=4096
+        # PUT /elgato/firmware-update/data?offset=8192
+        # ...
+        # POST /elgato/firmware-update/execute
