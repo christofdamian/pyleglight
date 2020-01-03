@@ -1,4 +1,4 @@
-# 
+""" Version and other details """
 
 __title__ = 'leglight'
 __description__ = 'A Python module designed to control the Elgato brand Lights.'
