@@ -7,7 +7,7 @@ from typing import cast
 from . import LegLight
 import logging
 
-def discover(timeout=5):
+def discover(timeout: int = 5) -> list:
     """ 
     Return a list of Elgato lights on the network
     
@@ -34,7 +34,7 @@ def discover(timeout=5):
 
     zeroconf = Zeroconf()
     listener = thelistener()
-    browser = ServiceBrowser(zeroconf, "_elg._tcp.local.", listener)
+    browser = ServiceBrowser(zeroconf, "_elg._tcp.local.", listener) # type: ignore
 
     try:
         # We're gonna loop for a bit waiting for discovery
