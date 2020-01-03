@@ -7,6 +7,7 @@ from typing import cast
 from . import LegLight
 import logging
 
+
 def discover(timeout: int = 5) -> list:
     """ 
     Return a list of Elgato lights on the network
@@ -18,6 +19,7 @@ def discover(timeout: int = 5) -> list:
     """
 
     lights = []
+
     class thelistener:
         def remove_service(self, zeroconf, type, name):
             pass
@@ -29,12 +31,12 @@ def discover(timeout: int = 5) -> list:
             port = cast(int, info.port)
             lname = info.name
             server = info.server
-            logging.debug("Found light @ {}:{}".format(ip,port))
+            logging.debug("Found light @ {}:{}".format(ip, port))
             lights.append(LegLight(address=ip, port=port, name=lname, server=server))
 
     zeroconf = Zeroconf()
     listener = thelistener()
-    browser = ServiceBrowser(zeroconf, "_elg._tcp.local.", listener) # type: ignore
+    browser = ServiceBrowser(zeroconf, "_elg._tcp.local.", listener)  # type: ignore
 
     try:
         # We're gonna loop for a bit waiting for discovery
@@ -45,4 +47,4 @@ def discover(timeout: int = 5) -> list:
     finally:
         # This sometimes takes a litteral second or two
         zeroconf.close()
-    return(lights)
+    return lights

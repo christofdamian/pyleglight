@@ -1,4 +1,5 @@
 import sys
+
 sys.path.append("..")
 import leglight
 import time
@@ -10,7 +11,11 @@ logging.basicConfig(level=logging.DEBUG)
 theLights = leglight.discover(2)
 for aLight in theLights:
     print(aLight)
-    print("Light Status: On - {} // Brightness - {} // Temp - {}".format(aLight.isOn,aLight.isBrightness,aLight.isTemperature))
+    print(
+        "Light Status: On - {} // Brightness - {} // Temp - {}".format(
+            aLight.isOn, aLight.isBrightness, aLight.isTemperature
+        )
+    )
 
 # Lets pick one to turn on and off, basic stuff.
 theLights[0].on()
@@ -32,7 +37,7 @@ time.sleep(1)
 l = 1
 while l <= 100:
     theLights[0].brightness(l)
-    time.sleep(.1)
+    time.sleep(0.1)
     l += 5
 
 # Reset the light to something sane and turn it off
