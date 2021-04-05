@@ -10,7 +10,7 @@ Welcome to pyLegLight's documentation!
 
 GitLab: https://gitlab.com/obviate.io/pyleglight
 
-PyPI: https://pypi.org/project/zeroconf.
+PyPI: https://pypi.org/project/leglight
 
 Install using pip::
 
