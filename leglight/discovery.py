@@ -34,6 +34,9 @@ def discover(timeout: int = 5) -> list:
             logging.debug("Found light @ {}:{}".format(ip, port))
             lights.append(LegLight(address=ip, port=port, name=lname, server=server))
 
+        def update_service(self, zeroconf, type, name):
+            pass
+
     zeroconf = Zeroconf()
     listener = thelistener()
     browser = ServiceBrowser(zeroconf, "_elg._tcp.local.", listener)  # type: ignore
