@@ -9,9 +9,9 @@ import logging
 
 
 def discover(timeout: int = 5) -> list:
-    """ 
+    """
     Return a list of Elgato lights on the network
-    
+
     Parameters
     ----------
     timeout
@@ -33,6 +33,9 @@ def discover(timeout: int = 5) -> list:
             server = info.server
             logging.debug("Found light @ {}:{}".format(ip, port))
             lights.append(LegLight(address=ip, port=port, name=lname, server=server))
+
+        def update_service(self, zc: Zeroconf, type_: str, name: str) -> None:
+            pass
 
     zeroconf = Zeroconf()
     listener = thelistener()
