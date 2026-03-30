@@ -1,3 +1,6 @@
+⚠️ **This repository has moved to Codeberg: https://codeberg.org/cdamian/pyleglight**
+
+This GitHub repository is archived and no longer maintained here.
 # pyleglight
 
 A Python module designed to control the [Elgato](https://www.elgato.com/en) brand Lights. For use in automation or in lieu of their [Control Center app](https://www.elgato.com/en/gaming/downloads) (when on a non-supported platform).
